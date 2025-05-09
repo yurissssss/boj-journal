@@ -1,5 +1,5 @@
 ## 👩🏻‍💻 boj-journal
-### *<sub>🔥&nbsp;just-boj-yur1n9</sub>*
+### *<sub>🚀&nbsp;just-boj-yur1n9</sub>*
 <br>
 
 > My personal journey solving Baekjoon Online Judge problems, powered by [BaekjoonHub](https://github.com/BaekjoonHub/BaekjoonHub)
