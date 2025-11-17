@@ -6,13 +6,15 @@ public class Main{
         
         int n = sc.nextInt();
         
-        int a = 0;
+        int i = 0;
         
-        while(a < n) {
-            a++;
-            for (int i = 1; i <= a; i++) {
+        while (i < n) {
+            i++;
+            
+            for (int j = 1; j <= i; j++) {
                 System.out.print("*");
             }
+            
             System.out.println();
         }
     }
