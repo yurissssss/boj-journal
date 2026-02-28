@@ -11,12 +11,14 @@ public class Main{
         
         br.close();
         
-        if (x > 0) {
-            if (y > 0) System.out.println("1");
-            else System.out.println("4");
-        } else {
-            if (y > 0) System.out.println("2");
-            else System.out.println("3");
-        }
+        System.out.println(quadrant(x, y));
+    }
+    
+    private static int quadrant(int x, int y) {
+        int q = 0;
+        if (x > 0) q = (y > 0) ? 1 : 4;
+        else q = (y > 0) ? 2 : 3; 
+        
+        return q;
     }
 }
