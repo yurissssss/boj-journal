@@ -23,6 +23,7 @@ public class Main{
         for (int i = 0; i < m; i++) {
             StringTokenizer nums = new StringTokenizer(br.readLine());
             
+            /*
             int a = Integer.parseInt(nums.nextToken());
             int b = Integer.parseInt(nums.nextToken());
             
@@ -30,6 +31,18 @@ public class Main{
                 int temp = arr[a+b-j-2];
                 arr[a+b-j-2] = arr[j];
                 arr[j] = temp;
+            }
+            */
+            
+            int left = Integer.parseInt(nums.nextToken()) - 1;
+            int right = Integer.parseInt(nums.nextToken()) - 1;
+            
+            while (left < right) {
+                int temp = arr[right];
+                arr[right] = arr[left];
+                arr[left] = temp;
+                left++;
+                right--;
             }
         }
         
