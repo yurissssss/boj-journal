@@ -13,7 +13,11 @@ public class Main{
         Arrays.fill(arr, -1);
         
         for (int i = 0; i < letter.length(); i++) {
-            findLetter(i, arr, letter);
+            int num = letter.charAt(i) - 'a';
+
+            if (arr[num] == -1) {
+                arr[num] = i;
+            }
         }
         
         br.close();
@@ -22,13 +26,5 @@ public class Main{
             System.out.print(arr[i]);
             System.out.print(" ");
         }
-    }
-    
-    private static int[] findLetter(int i, int[] arr, String letter) {
-        int num = letter.charAt(i) - 'a';
-        
-        if (arr[num] == -1) arr[num] = i;
-        
-        return arr;
     }
 }
