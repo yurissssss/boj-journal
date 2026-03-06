@@ -12,27 +12,39 @@ public class Main{
         int n = Integer.parseInt(st.nextToken());
         int m = Integer.parseInt(st.nextToken());
         
-        int[][] mat1 = new int[n][m];
+        int[][] mat = new int[n][m];
         
         for (int i = 0; i < n; i++) {
             st = new StringTokenizer(br.readLine());
             
             for (int j = 0; j < m; j++) {
-                mat1[i][j] = Integer.parseInt(st.nextToken());
+                mat[i][j] = Integer.parseInt(st.nextToken());
             }
         }
         
-        int[][] mat2 = new int[n][m];
-        
+        /*
         for (int i = 0; i < n; i++) {
             st = new StringTokenizer(br.readLine());
             
             for (int j = 0; j < m; j++) {
-                mat2[i][j] = Integer.parseInt(st.nextToken()) + mat1[i][j];
-                if (j == m-1) System.out.println(mat2[i][j]);
-                else System.out.print(mat2[i][j] + " ");
+                int sum = Integer.parseInt(st.nextToken()) + mat[i][j];
+                if (j == m-1) System.out.println(sum);
+                else System.out.print(sum + " ");
             }
         }
+        */
+        
+        StringBuilder sb = new StringBuilder();
+        
+        for (int i = 0; i < n; i++) {
+            st = new StringTokenizer(br.readLine());
+            for (int j = 0; j < m; j++) {
+                if (j == m-1) sb.append(mat[i][j] + Integer.parseInt(st.nextToken()));
+                else sb.append(mat[i][j] + Integer.parseInt(st.nextToken())).append(" ");
+            }
+            sb.append("\n");
+        }
+        System.out.println(sb);
         
         br.close();
     }
