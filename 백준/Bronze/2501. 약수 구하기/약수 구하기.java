@@ -12,16 +12,20 @@ public class Main{
         int num = Integer.parseInt(st.nextToken());
         int index = Integer.parseInt(st.nextToken());
         
-        int count = 0;
-        
-        for (int i=1; i<=num; i++) {
-            if ((num%i == 0) && (++count == index)) {
-                System.out.println(i);
-                return;
-            }
-        }
-        System.out.println("0");
+        int answer = findFactor(num, index);
+            
+        System.out.println(answer);
         
         br.close();
+    }
+    
+    public static int findFactor(int n, int k) {
+        int count = 0;
+        
+        for (int i=1; i<=n; i++) {
+            if ((n%i == 0) && (++count == k)) return i;
+        }
+        
+        return 0;
     }
 }
