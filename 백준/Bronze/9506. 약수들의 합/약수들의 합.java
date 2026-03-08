@@ -1,7 +1,6 @@
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.IOException;
-import java.util.StringTokenizer;
 
 public class Main{
     public static void main(String[] str) throws IOException{
@@ -19,12 +18,13 @@ public class Main{
     public static void findSum(int n) {
         int sum = 1;
         
-        StringBuilder sb = new StringBuilder(n + " = 1");
+        StringBuilder sb = new StringBuilder();
+        sb.append(n).append(" = 1");
         
-        for (int i=2; i<n; i++) {
+        for (int i=2; i<=n/2; i++) {
             if ((n%i == 0)) {
                 sum += i;
-                sb.append(" + " + i);
+                sb.append(" + ").append(i);
             }
         }
         
