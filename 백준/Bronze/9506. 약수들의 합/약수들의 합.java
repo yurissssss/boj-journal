@@ -15,7 +15,7 @@ public class Main{
         br.close();
     }
     
-    public static void findSum(int n) {
+    private static void findSum(int n) {
         int sum = 1;
         
         StringBuilder sb = new StringBuilder();
