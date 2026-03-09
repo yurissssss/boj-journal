@@ -9,21 +9,19 @@ public class Main{
         int b = Integer.parseInt(br.readLine());
         int c = Integer.parseInt(br.readLine());
         
-        checkAngle(a, b, c);
+        String answer = checkAngle(a, b, c);
+        System.out.println(answer);
         
         br.close();
     }
     
-    private static void checkAngle(int a, int b, int c) {
-        String tri = "Error";
-        
+    private static String checkAngle(int a, int b, int c) {
         if (a+b+c == 180) {
-            if ((a==b) && (b==c)) tri = "Equilateral";
-            else if ((a==b) || (b==c) || (c==a)) tri = "Isosceles";
-            else tri = "Scalene";
+            if ((a==b) && (b==c)) return "Equilateral";
+            else if ((a==b) || (b==c) || (c==a)) return "Isosceles";
+            else return "Scalene";
         }
-        
-        System.out.println(tri);
+        return "Error";
     }
 
 }
