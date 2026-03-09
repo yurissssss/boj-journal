@@ -6,27 +6,17 @@ import java.util.StringTokenizer;
 public class Main{
     public static void main(String[] args) throws IOException{
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st = new StringTokenizer(br.readLine());
         
-        String[] st = br.readLine().split(" "); 
+        int x = Integer.parseInt(st.nextToken());
+        int y = Integer.parseInt(st.nextToken());
+        int w = Integer.parseInt(st.nextToken()) - x;
+        int h = Integer.parseInt(st.nextToken()) - y;
         
-        int[] num = new int[4];
-        for (int i = 0; i < 4; i++) {
-            num[i] = Integer.parseInt(st[i]);
-        }
-        
-        int min = findMin(num);
+        int min = Math.min(Math.min(x, y), Math.min(w, h));
         
         System.out.println(min);
         
         br.close();
-    }
-    
-    private static int findMin(int[] n) {
-        int min = (n[0] < n[1]) ? n[0] : n[1]; 
-        
-        min = ((n[2]-n[0]) < min) ? n[2]-n[0] : min;
-        min = ((n[3]-n[1]) < min) ? n[3]-n[1] : min;
-        
-        return min;
     }
 }
