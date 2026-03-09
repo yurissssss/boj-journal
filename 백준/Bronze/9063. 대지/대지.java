@@ -23,10 +23,10 @@ public class Main{
             int x = Integer.parseInt(st.nextToken());
             int y = Integer.parseInt(st.nextToken());
             
-            x_min = (x < x_min) ? x : x_min;
-            x_max = (x > x_max) ? x : x_max;
-            y_min = (y < y_min) ? y : y_min;
-            y_max = (y > y_max) ? y : y_max;
+            x_min = Math.min(x_min, x);
+            x_max = Math.max(x_max, x);
+            y_min = Math.min(y_min, y);
+            y_max = Math.max(y_max, y);
         }
         
         System.out.println((x_max-x_min)*(y_max-y_min));
