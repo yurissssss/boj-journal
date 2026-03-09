@@ -3,8 +3,9 @@ import java.io.InputStreamReader;
 import java.io.IOException;
 import java.util.Arrays;
 
-public class Main{
-    public static void main(String[] args) throws IOException{
+public class Main {
+    
+    public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         
         while (true) {
@@ -14,6 +15,7 @@ public class Main{
             for (int i = 0; i < 3; i++) {
                 side[i] = Integer.parseInt(st[i]);
             }
+            
             if (side[0] == 0) break;
             
             Arrays.sort(side);
@@ -24,13 +26,13 @@ public class Main{
         
         br.close();
     }
-   
+    
     private static String checkTri(int a, int b, int c) {
-    if (c < (b+a)) {
-        if (a == c) return "Equilateral";
-        else if ((a==b) || (b==c)) return "Isosceles";
-        else return "Scalene";
+        if (c < (b + a)) {
+            if (a == c) return "Equilateral";
+            else if ((a == b) || (b == c)) return "Isosceles";
+            else return "Scalene";
+        }
+        return "Invalid";
     }
-    return "Invalid";
-}
 }
