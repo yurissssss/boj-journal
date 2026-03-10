@@ -18,22 +18,23 @@ public class Main{
             nums[i] = Integer.parseInt(st.nextToken());
         }
         
-        int answer = setBlackJack(n, m, nums);
+        int answer = findBlackJack(m, nums);
         
         System.out.println(answer);
         
         br.close();
     }
     
-    private static int setBlackJack(int n, int m, int[] nums) {
-        int max = Integer.MIN_VALUE;
+    private static int findBlackJack(int m, int[] nums) {
+        int max = 0;
+        int n = nums.length;
         
-        for (int i = 0; i < n-2; i++) {
-            for (int j = i + 1; j < n-1; j++) {
+        for (int i = 0; i < n - 2; i++) {
+            for (int j = i + 1; j < n - 1; j++) {
                 for (int k = j + 1; k < n; k++) {
                     int sum = nums[i] + nums[j] + nums[k];
                     
-                    if (sum <= m) max = Math.max(sum, max);
+                    if (sum <= m) max = Math.max(max, sum);
                 }
             }
         }
