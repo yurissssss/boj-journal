@@ -31,8 +31,6 @@ public class Main{
     }
     
     private static int paintBoard(String[] col, int n, int m) {
-        int b = 0;
-        int w = 0;
         int paint = 0;
         
         char now = col[n].charAt(m);
