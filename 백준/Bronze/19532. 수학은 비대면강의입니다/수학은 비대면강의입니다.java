@@ -17,12 +17,8 @@ public class Main{
         
         for (int x = -999; x <= 999; x++) {
             for (int y = -999; y <= 999; y++) {
-                int equ1 = a * x + b * y;
-                
-                if (equ1 == c) {
-                    int equ2 = d * x + e * y;
-                    
-                    if (equ2 == f) {
+                if (a * x + b * y == c) {
+                    if (d * x + e * y == f) {
                         System.out.println(x + " " + y);
                         return;
                     }
