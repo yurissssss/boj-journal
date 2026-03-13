@@ -7,7 +7,8 @@ public class Main {
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
         
         int n = Integer.parseInt(br.readLine());
-        Set<String> set = new HashSet<>();
+        Set<String> set = new TreeSet<>(Collections.reverseOrder());
+        // 자동으로 역순정렬 유지
         
         for (int i = 0; i < n; i++) {
             String[] st = br.readLine().split(" ");
@@ -16,11 +17,7 @@ public class Main {
             else set.remove(st[0]);
         }
         
-        List<String> list = new ArrayList<>(set);
-        
-        Collections.sort(list, Collections.reverseOrder());
-        
-        for (String s : list) {
+        for (String s : set) {
             bw.write(s + '\n');
         }
         
