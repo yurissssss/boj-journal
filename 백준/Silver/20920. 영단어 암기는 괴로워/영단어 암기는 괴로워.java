@@ -26,6 +26,7 @@ public class Main {
         
         Collections.sort(list, (a, b) -> {
             // 빈도수가 다를 경우 -> 빈도가 많은 순으로 정렬
+            // int❎, Integer🅾️ -> 'equals'로 비교
             if (!map.get(a).equals(map.get(b))) {
                 return map.get(b) - map.get(a);
             }
