@@ -8,11 +8,14 @@ public class Main {
         long n = Long.parseLong(br.readLine());
         String s = br.readLine();
         long sum = 0;
-        long i = 1;
+        long pow = 1;
+        long mow = 1234567891;
         
-        for (char c : s.toCharArray()) {
-            sum += (c - 'a' + 1) * i;
-            i *= 31;
+        for (int i = 0; i < n; i++) {
+            int value = s.charAt(i) - 'a' + 1;
+            
+            sum = (sum + value * pow) % mow;
+            pow = (pow * 31) % mow;
         }
         
         System.out.print(sum);
