@@ -33,6 +33,7 @@ public class Main {
                     
                 case "top":
                     sb.append(stack.isEmpty() ? -1 : stack.peek()).append('\n');
+                    break;
             }
         }
         
