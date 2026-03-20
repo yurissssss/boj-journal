@@ -1,6 +1,16 @@
 import java.io.*;
 import java.util.*;
 
+class Doc {
+    int idx;
+    int imp;
+    
+    Doc(int idx, int imp) {
+        this.idx = idx;
+        this.imp = imp;
+    }
+}
+
 public class Main {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -14,23 +24,21 @@ public class Main {
             
             int m = Integer.parseInt(st.nextToken());
             int idx = Integer.parseInt(st.nextToken());
-            Map<Integer, Integer> map = new TreeMap<>();
-            Deque<Integer> dq = new ArrayDeque<>();
+            Deque<Doc> dq = new ArrayDeque<>();
             
             st = new StringTokenizer(br.readLine());
             for (int j = 0; j < m; j++) {
                 int imp = Integer.parseInt(st.nextToken());
-                map.put(j, imp);
-                dq.offer(j);
+                dq.offer(new Doc(j, imp));
             }
             
             int count = 0;
             while (true) {
-                int target = dq.poll();
+                Doc target = dq.poll();
                 boolean isOk = true;
                 
-                for (int k = 9; k > map.get(target); k--) {
-                    if (map.containsValue(k)) {
+                for (Doc d : dq) {
+                    if (d.imp > target.imp) {
                         dq.offer(target);
                         isOk = false;
                         break;
@@ -39,9 +47,8 @@ public class Main {
                 
                 if (isOk) {
                     count++;
-                    map.remove(target);
                     
-                    if (target == idx) {
+                    if (target.idx == idx) {
                         sb.append(count).append('\n');
                         break;
                     }
