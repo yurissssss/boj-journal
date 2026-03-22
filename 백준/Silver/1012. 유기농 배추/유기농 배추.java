@@ -16,30 +16,30 @@ public class Main {
         StringBuilder sb = new StringBuilder();
         StringTokenizer st;
         
-        int T = Integer.parseInt(br.readLine());
+        int n = Integer.parseInt(br.readLine());
         
-        for (int i = 0; i < T; i++) {
+        for (int i = 0; i < n; i++) {
             st = new StringTokenizer(br.readLine());
-            M = Integer.parseInt(st.nextToken());  // 가로 길이
-            N = Integer.parseInt(st.nextToken());  // 세로 길이
+            M = Integer.parseInt(st.nextToken());  // 가로 길이 (x의 범위)
+            N = Integer.parseInt(st.nextToken());  // 세로 길이 (y의 범위)
             K = Integer.parseInt(st.nextToken());  // 배추 위치 개수
             
-            arr = new int[N][M];
-            visited = new boolean[N][M];
+            arr = new int[M][N];
+            visited = new boolean[M][N];
             
             for (int j = 0; j < K; j++) {
                 st = new StringTokenizer(br.readLine());
                 int x = Integer.parseInt(st.nextToken());
                 int y = Integer.parseInt(st.nextToken());
                 
-                arr[y][x] = 1;
+                arr[x][y] = 1;
             }
             
             int count = 0;
-            for (int j = 0; j < N; j++) {
-                for (int k = 0; k < M; k++) {
-                    if (arr[j][k] == 1 && !visited[j][k]) {
-                        dfs(j, k);
+            for (int x = 0; x < M; x++) {
+                for (int y = 0; y < N; y++) {
+                    if (arr[x][y] == 1 && !visited[x][y]) {
+                        dfs(x, y);
                         count++;
                     }
                 }
@@ -59,8 +59,8 @@ public class Main {
             int nx = x + dx[i];
             int ny = y + dy[i];
             
-            // 범위 내에 ❎ -> 건너뛰기
-            if (nx < 0 || nx >= N || ny < 0 || ny >= M) continue;
+            // 좌표의 위치가 범위 내에 ❎ -> 건너뛰기
+            if (nx < 0 || nx >= M || ny < 0 || ny >= N) continue;
             
             if (arr[nx][ny] == 1 && !visited[nx][ny]) dfs(nx, ny);
         }
