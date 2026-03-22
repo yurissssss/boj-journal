@@ -5,7 +5,7 @@ public class Main {
     static int m;
     static boolean[] visited;
     static Map<Integer, List<Integer>> map;
-    static Set<Integer> set = new HashSet<>();
+    static int count = 0;
     
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -37,16 +37,16 @@ public class Main {
     }
     
     private static int dfs(int n) {
-        if (!map.containsKey(n)) return set.size();
+        if (!map.containsKey(n)) return count;
         
         for (int i : map.get(n)) {
             if (!visited[i]) {
-                set.add(i);
+                count++;
                 visited[i] = true;
                 dfs(i);
             }
         }
         
-        return set.size();
+        return count;
     }
 }
