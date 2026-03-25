@@ -9,7 +9,7 @@ public class Main {
         StringTokenizer st = new StringTokenizer(br.readLine());
         
         int n = Integer.parseInt(st.nextToken());
-        int m = Integer.parseInt(st.nextToken());  // 친구 관계
+        int m = Integer.parseInt(st.nextToken());
         
         graph = new ArrayList[n + 1];
         for (int i = 1; i <= n; i++) {
@@ -30,7 +30,7 @@ public class Main {
         for (int i = 1; i <= n; i++) {
             int sum = bfs(i, n);
             
-            if (min > sum) {
+            if (sum < min) {
                 min = sum;
                 answer = i;
             }
