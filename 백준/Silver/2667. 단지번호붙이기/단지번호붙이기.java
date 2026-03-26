@@ -25,19 +25,17 @@ public class Main {
             }
         }
         
-        int zone = 0;
         List<Integer> list = new ArrayList<>();
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
                 if (!visited[i][j] && arr[i][j] == 1) {
                     count = 1;
                     dfs(i, j);
-                    zone++;
                     list.add(count);
                 }
             }
         }
-        sb.append(zone);
+        sb.append(list.size());
         
         Collections.sort(list);
         
