@@ -10,22 +10,15 @@ public class Main {
         String S = br.readLine();
         
         int answer = 0;
-        for (int i = 0; i < M - 2 * N; i++) {
-            char c = S.charAt(i);
-            boolean isTrue = true;
-            
-            if (c == 'I') {
-                for (int j = 1; j <= N; j++) {
-                    int odd = 2 * j - 1;
-                    int even = 2 * j;
-                    if (S.charAt(i + odd) != 'O' || S.charAt(i + even) != 'I') {
-                        isTrue = false;
-                        break;
-                    }
-                }
-            } else isTrue = false;
-            
-            if (isTrue) answer++;
+        int count = 0;
+        for (int i = 1; i < M - 1; i++) {
+            if (S.charAt(i - 1) == 'I' && S.charAt(i) == 'O' && S.charAt(i + 1) == 'I') {
+                count++;
+                
+                if (count >= N) answer++;
+                
+                i++;  // i += 2;
+            } else count = 0;
         }
         
         System.out.print(answer);
