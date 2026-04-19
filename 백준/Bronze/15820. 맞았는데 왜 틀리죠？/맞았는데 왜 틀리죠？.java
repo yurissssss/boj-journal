@@ -9,15 +9,15 @@ public class Main {
         int s1 = Integer.parseInt(st.nextToken());
         int s2 = Integer.parseInt(st.nextToken());
         
+        boolean sampleCorrect = true;
+        boolean systemCorrect = true;
+        
         for (int i = 0; i < s1; i++) {
             st = new StringTokenizer(br.readLine());
             int answer = Integer.parseInt(st.nextToken());
             int submit = Integer.parseInt(st.nextToken());
             
-            if (answer != submit) {
-                System.out.println("Wrong Answer");
-                return;
-            }
+            if (answer != submit) sampleCorrect = false;
         }
         
         for (int i = 0; i < s2; i++) {
@@ -25,13 +25,11 @@ public class Main {
             int answer = Integer.parseInt(st.nextToken());
             int submit = Integer.parseInt(st.nextToken());
             
-            if (answer != submit) {
-                System.out.println("Why Wrong!!!");
-                return;
-            }
+            if (answer != submit) systemCorrect = false;
         }
-        
-        System.out.println("Accepted");
+        if (!sampleCorrect) System.out.println("Wrong Answer");
+        else if (!systemCorrect) System.out.println("Why Wrong!!!");
+        else System.out.println("Accepted");
         br.close();
     }
 }
