@@ -15,7 +15,7 @@ public class Main {
             int submit = Integer.parseInt(st.nextToken());
             
             if (answer != submit) {
-                System.out.print("Wrong Answer");
+                System.out.println("Wrong Answer");
                 return;
             }
         }
@@ -26,12 +26,12 @@ public class Main {
             int submit = Integer.parseInt(st.nextToken());
             
             if (answer != submit) {
-                System.out.print("Why Wrong!!!");
+                System.out.println("Why Wrong!!!");
                 return;
             }
         }
         
-        System.out.print("Accepted");
+        System.out.println("Accepted");
         br.close();
     }
 }
