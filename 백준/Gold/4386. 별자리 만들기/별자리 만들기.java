@@ -77,8 +77,8 @@ public class Main {
     }
     
     private static void union(int x, int y) {
-        int root1 = parent[x];
-        int root2 = parent[y];
+        int root1 = find(x);
+        int root2 = find(y);
         
         if (root1 != root2) {
             parent[root1] = root2;
