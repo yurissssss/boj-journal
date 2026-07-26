@@ -2,25 +2,25 @@ import java.util.*;
 
 class Solution {
     public String solution(String[] participant, String[] completion) {
-    Map<String, Integer> map = new HashMap<>();
-        
-        for (int i = 0; i < completion.length; i++) {
-            map.put(completion[i], map.getOrDefault(completion[i], 0) + 1);
+        HashMap<String, Integer> map = new HashMap<>();
+        for (String s : completion) {
+            map.put(s, map.getOrDefault(s, 0) + 1);
         }
         
-        String answer = "";
-        for (int i = 0; i < participant.length; i++) {
-            if (!map.containsKey(participant[i])) {
-                answer = participant[i];
-                break;
-            } else {
-                map.put(participant[i], map.get(participant[i]) - 1);
-                if (map.get(participant[i]) == 0) {
-                    map.remove(participant[i]);
-                }
-            }
+        Deque<String> dq = new ArrayDeque<>();
+        for (String s : participant) {
+            dq.offer(s);
         }
         
-        return answer;
+        while (!dq.isEmpty()) {
+            String cur = dq.poll();
+            
+            if (map.containsKey(cur)) {
+                if (map.get(cur) == 1) map.remove(cur);
+                else map.put(cur, map.get(cur) - 1);
+            } else return cur;
+        }
+        
+        return "";
     }
 }
