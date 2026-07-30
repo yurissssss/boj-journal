@@ -5,24 +5,24 @@ class Solution {
         Map<String, Integer> genreMap = new HashMap<>();
         Map<String, List<int[]>> songMap = new HashMap<>();
         
-        for (int i = 0; i < plays.length; i++) {
+        for (int i = 0; i < genres.length; i++) {
             genreMap.put(genres[i], genreMap.getOrDefault(genres[i], 0) + plays[i]);
+            
             songMap.putIfAbsent(genres[i], new ArrayList<>());
             songMap.get(genres[i]).add(new int[]{i, plays[i]});
         }
         
-        List<String> genreList = new ArrayList<>(genreMap.keySet());
-        genreList.sort((a, b) -> 
-                      genreMap.get(b) - genreMap.get(a));
+        List<String> songList = new ArrayList<>(genreMap.keySet());
+        songList.sort((a, b) -> genreMap.get(b) - genreMap.get(a));
         
         List<Integer> answer = new ArrayList<>();
         
-        for (String s : genreList) {
-            List<int[]> songs = songMap.get(s);
+        for (String genre : songList) {
+            List<int[]> songs = songMap.get(genre);
             songs.sort((a, b) -> {
-                      if (a[1] == b[1]) return a[0] - b[0];
-                      return b[1] - a[1];
-                          });
+                if (a[1] == b[1]) return a[0] - b[0];
+                return b[1] - a[1];
+            });
             
             for (int i = 0; i < Math.min(2, songs.size()); i++) {
                 answer.add(songs.get(i)[0]);
