@@ -4,13 +4,10 @@ public class Solution {
     public int[] solution(int []arr) {
         Deque<Integer> dq = new ArrayDeque<>();
         dq.offer(arr[0]);
-        int prev = arr[0];
         
         for (int i : arr) {
-            if (i != prev) {
-                dq.offer(i);
-                prev = i;
-            }
+            if (dq.peekLast() == i) continue;
+            else dq.offer(i);
         }
         
         int[] answer = new int[dq.size()];
@@ -19,7 +16,7 @@ public class Solution {
         for (int i : dq) {
             answer[idx++] = i;
         }
-
+        
         return answer;
     }
 }
